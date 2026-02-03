@@ -7,6 +7,7 @@ import com.gonzzo.userservice.repository.UserRepository;
 import com.gonzzo.userservice.entity.UserEntity;
 import com.gonzzo.userservice.dto.UserRequest;
 import com.gonzzo.userservice.dto.UserResponse;
+import com.gonzzo.userservice.mapper.UserMapper;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class UserService {
     public List<UserResponse> getUsers() {
         return userRepository.findAll()
                 .stream()
-                .map(this::mapToResponse)
+                .map(UserMapper::toResponse)
                 .toList();
     }
 
@@ -34,15 +35,6 @@ public class UserService {
 
         UserEntity saved = userRepository.save(entity);
 
-        return mapToResponse(saved);
+        return UserMapper.toResponse(saved);
     }
-
-    private UserResponse mapToResponse(UserEntity entity) {
-        UserResponse response = new UserResponse();
-        response.setId(entity.getId());
-        response.setName(entity.getName());
-        response.setEmail(entity.getEmail());
-        return response;
-    }
-
 }
