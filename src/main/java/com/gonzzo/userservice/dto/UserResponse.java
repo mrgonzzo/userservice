@@ -18,6 +18,10 @@ public class UserResponse {
         this.createdAt = createdAt;
     }
 
+    public UserResponse() {
+
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -38,11 +42,25 @@ public class UserResponse {
         this.createdAt = createdAt;
     }
 
-    public Long getId() { return id; }
-    public String getName() { return name; }
-    public String getEmail() { return email; }
-    public boolean isActive() { return active; }
-    public LocalDateTime getCreatedAt() { return createdAt; }
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
 
 }
